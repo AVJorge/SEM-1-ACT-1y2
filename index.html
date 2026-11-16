@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crecer, medir y proyectar · Módulo 13</title>
+<meta name="description" content="Material interactivo del Módulo 13: crecimiento exponencial (AI1) y tasas de crecimiento y proyección de viviendas (AI2).">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232b5d8a'/%3E%3Cpath d='M6 25 C14 25 20 20 26 6' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<header><div class="wrap">
+  <p class="kicker">Material de apoyo · Módulo 13</p>
+  <h1>Crecer, medir y proyectar</h1>
+  <p>Aquí aprendes el <b>procedimiento</b> con datos de ejemplo. Los resultados de tu actividad los calculas tú con los datos de la plataforma.</p>
+  <nav class="switch" aria-label="Actividad">
+    <a href="#ai1" id="sw-ai1">Actividad integradora 1<small>Crecimiento en la isla</small></a>
+    <a href="#ai2" id="sw-ai2">Actividad integradora 2<small>¿Cuántas casas más?</small></a>
+  </nav>
+</div></header>
+
+<noscript><div>Este material necesita JavaScript para funcionar. Actívalo en tu navegador y recarga la página.</div></noscript>
+
+<!-- ===================== ACTIVIDAD 1 ===================== -->
+<div class="activity" id="act1">
+<nav aria-label="Secciones de la actividad 1"><div class="wrap">
+  <a href="#idea">1. Sumar o multiplicar</a>
+  <a href="#formula">2. La fórmula</a>
+  <a href="#tabla1">3. Tabla y sustitución</a>
+  <a href="#limite">4. ¿Cuándo se rebasa el límite?</a>
+  <a href="#hoja1">5. En la hoja de cálculo</a>
+  <a href="#impacto">6. Consecuencias</a>
+  <a href="#quiz1">7. ¿Lo entendí?</a>
+  <a href="#lista1">8. Antes de entregar</a>
+</div></nav>
+<main>
+<section class="intro"><span class="step">Actividad integradora 1 · Crecimiento en la isla</span><h2>Cuando una población se multiplica</h2><p class="lead">Vas a calcular cómo crece una población que se multiplica por el mismo número cada semana, a construir su tabla y su gráfica, y a analizar qué pasa cuando rebasa lo que el lugar puede sostener.</p></section>
+
+<!-- 1. IDEA -->
+<section id="idea">
+  <span class="step">Paso 1</span>
+  <h2>¿Sumar o multiplicar? La diferencia que lo cambia todo</h2>
+  <p class="lead">En una granja ecológica hay 3 conejos. Compara dos formas de crecer durante 7 semanas.</p>
+  <div class="vs">
+    <div class="opt"><h4>Crecimiento lineal</h4><p>Cada semana se <b>suman</b> 6 conejos. La población crece siempre la misma cantidad.</p></div>
+    <div class="opt good"><h4>Crecimiento exponencial</h4><p>Cada semana la población se <b>multiplica por 3</b>. Mientras más conejos hay, más nacen.</p></div>
+  </div>
+  <div class="tablewrap"><table class="mini" id="tIdea"></table></div>
+  <div class="legend"><span><i style="background:#5b6670"></i>Lineal (+6)</span><span><i style="background:#1f8a5b"></i>Exponencial (×3)</span></div>
+  <div class="chartbox"><svg id="cIdea" viewBox="0 0 720 260" width="100%" role="img" aria-label="Crecimiento lineal y exponencial"></svg></div>
+  <p class="big-idea">Al principio parecen parecidos, pero el exponencial <b>se dispara</b>: cada semana crece más que la anterior.</p>
+</section>
+
+<!-- 2. FÓRMULA -->
+<section id="formula">
+  <span class="step">Paso 2</span>
+  <h2>La fórmula del crecimiento exponencial</h2>
+  <div class="formula"><span class="nw">P = P<sub>0</sub> · b<sup>t</sup></span></div>
+  <div class="grid2"><ul>
+    <li><b>P</b>: población después de <i>t</i> semanas.</li>
+    <li><b>P<sub>0</sub></b>: población inicial (en la semana 0).</li>
+  </ul><ul>
+    <li><b>b</b>: factor de crecimiento. Si se duplica, b = 2; si se triplica, b = 3.</li>
+    <li><b>t</b>: tiempo (número de semanas).</li>
+  </ul></div>
+  <div class="note blue"><b>El exponente se calcula primero.</b> En 3 · 3<sup>4</sup>, primero resuelves 3<sup>4</sup> = 3 × 3 × 3 × 3 = 81, y después multiplicas por la población inicial: 3 × 81 = 243. Si multiplicas primero (3 × 3 = 9 y luego 9<sup>4</sup>), el resultado es incorrecto.</div>
+  <div class="note"><b>¿Por qué en la semana 0 la población es la inicial?</b> Porque cualquier número elevado a 0 es 1: P = P<sub>0</sub> · b<sup>0</sup> = P<sub>0</sub> · 1 = P<sub>0</sub>.</div>
+</section>
+
+<!-- 3. TABLA -->
+<section id="tabla1">
+  <span class="step">Paso 3</span>
+  <h2>La tabla: semana, sustitución y resultado</h2>
+  <p class="lead">Elige una población inicial y un factor. Los valores disponibles son distintos a los de tu actividad. Avanza semana por semana para ver cómo se sustituye <i>t</i> en la fórmula.</p>
+  <div class="sel-row">
+    <label for="p0">Población inicial (P<sub>0</sub>)<select id="p0"><option value="3" selected>3 conejos</option><option value="5">5 conejos</option><option value="6">6 conejos</option></select></label>
+    <label for="bf">Factor de crecimiento (b)<select id="bf"><option value="3" selected>3 (se triplica)</option><option value="4">4 (se cuadruplica)</option><option value="5">5 (se quintuplica)</option></select></label>
+  </div>
+  <div class="formula" id="fModel"></div>
+  <div class="row">
+    <button type="button" class="btn" id="eNext">Calcular la siguiente semana ▸</button>
+    <button type="button" class="btn ghost" id="eAll">Mostrar toda la tabla</button>
+    <button type="button" class="btn ghost" id="eReset">Reiniciar</button>
+  </div>
+  <div class="explain" id="eExplain" aria-live="polite"></div>
+  <div class="tablewrap"><table class="mini"><thead><tr><th scope="col">Semana (t)</th><th scope="col">Sustitución en t</th><th scope="col">Resultado (P)</th></tr></thead><tbody id="eBody"></tbody></table></div>
+  <h3>Gráfica del crecimiento por semana</h3>
+  <div class="chartbox"><svg id="cExp" viewBox="0 0 720 280" width="100%" role="img" aria-label="Gráfica de crecimiento exponencial"></svg></div>
+  <p class="small">Una gráfica de columnas o de líneas con la semana en el eje horizontal y la población en el vertical muestra bien el crecimiento. Ponle título y nombre a los ejes.</p>
+</section>
+
+<!-- 4. LÍMITE -->
+<section id="limite">
+  <span class="step">Paso 4</span>
+  <h2>¿En qué semana se rebasa el límite?</h2>
+  <p class="lead">Un lugar solo puede sostener cierta cantidad de animales. Para saber cuándo se rebasa, busca en tu tabla la <b>primera</b> semana en que la población es <b>mayor</b> que el límite.</p>
+  <div class="sel-row">
+    <label for="lim">Límite de la granja<select id="lim"><option value="100">100 conejos</option><option value="500" selected>500 conejos</option><option value="1000">1 000 conejos</option><option value="5000">5 000 conejos</option></select></label>
+  </div>
+  <div class="tablewrap"><table class="mini" id="tLim"></table></div>
+  <div class="explain" id="limMsg" aria-live="polite"></div>
+  <div class="note"><b>¿Por cuánto se rebasa?</b> Exceso = población de esa semana − límite. Fíjate en que la pregunta pide la semana en que se <b>excede</b>, no la última semana que queda por debajo.</div>
+</section>
+
+<!-- 5. HOJA -->
+<section id="hoja1">
+  <span class="step">Paso 5</span>
+  <h2>Cómo armarlo en tu hoja de cálculo</h2>
+  <p class="lead">Haz clic en una fórmula azul para ver qué hace. Escribe la población inicial, el factor y el límite en celdas aparte, para que las fórmulas los usen.</p>
+  <div class="fbar"><b>fx</b><span id="ftext1">Selecciona una celda azul.</span></div>
+  <div class="tablewrap"><table class="sheet" id="sheet1"></table></div>
+  <div class="explain" id="fexp1" aria-live="polite">Aquí aparecerá la explicación de la fórmula.</div>
+  <div class="note blue"><b>El símbolo ^</b> significa “elevado a”: <span class="mono">3^4</span> es 3<sup>4</sup>. También puedes usar la función <span class="mono">POTENCIA(3,4)</span>. En inglés y en Google Sheets: <span class="mono">POTENCIA</span> = <span class="mono">POWER</span>, <span class="mono">SI</span> = <span class="mono">IF</span>.</div>
+</section>
+
+<!-- 6. IMPACTO -->
+<section id="impacto">
+  <span class="step">Paso 6</span>
+  <h2>Consecuencias del crecimiento y tu entorno</h2>
+  <p class="lead">Cuando una población crece más rápido que los recursos del lugar, aparecen problemas. Usa estas preguntas para pensar tu respuesta y tu ejemplo de la hoja 2.</p>
+  <div class="concepts">
+    <div class="concept c-out"><b>Recursos</b>¿Alcanza el alimento, el agua y el espacio para todos?</div>
+    <div class="concept c-sav"><b>Ecosistema</b>¿Qué pasa con otras especies, con las plantas o con la arena donde anidan?</div>
+    <div class="concept c-bal"><b>Salud</b>¿Aumentan las enfermedades cuando hay muchos individuos en poco espacio?</div>
+    <div class="concept c-in"><b>Personas</b>¿Cómo afecta a quienes viven o trabajan en el lugar?</div>
+  </div>
+  <div class="model">
+    <h4>Estructura sugerida para tu ejemplo de la hoja 2</h4>
+    <p>1. <b>Situación de tu entorno:</b> describe algo que crece en tu colonia, municipio o escuela (habitantes, autos, estudiantes, perros en la calle).</p>
+    <p>2. <b>Dato:</b> incluye al menos un número con su fuente y su año.</p>
+    <p>3. <b>Impacto:</b> explica qué servicios o recursos se ven presionados (agua, transporte, espacio, salud).</p>
+    <p>4. <b>Propuesta:</b> qué se podría hacer para que el crecimiento no rebase lo que el lugar puede sostener.</p>
+  </div>
+</section>
+
+<section id="quiz1"><span class="step">Paso 7</span><h2>¿Lo entendí? Tres situaciones rápidas</h2><div id="qz1"></div></section>
+
+<section id="lista1"><span class="step">Paso 8</span><h2>Antes de entregar</h2>
+  <div class="check">
+    <label><input type="checkbox"> Mi tabla tiene las semanas de la 0 a la 7, la sustitución en t y el resultado.</label>
+    <label><input type="checkbox"> Los resultados vienen de fórmulas en la hoja de cálculo.</label>
+    <label><input type="checkbox"> Calculé primero la potencia y después multipliqué por la población inicial.</label>
+    <label><input type="checkbox"> Incluí la gráfica con título y nombres de los ejes.</label>
+    <label><input type="checkbox"> Respondí la población de la sexta semana.</label>
+    <label><input type="checkbox"> Indiqué la primera semana que rebasa el límite y calculé el exceso.</label>
+    <label><input type="checkbox"> Expliqué consecuencias del crecimiento.</label>
+    <label><input type="checkbox"> En la hoja 2 expliqué con un ejemplo de mi entorno, con un dato y su fuente.</label>
+    <label><input type="checkbox"> Cité fuentes y herramientas de IA según el manual vigente de PL-SEP.</label>
+  </div>
+  <div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="9" aria-valuenow="0"><div></div></div>
+  <p class="small ptext">0 de 9</p>
+</section>
+</main>
+</div>
+
+<!-- ===================== ACTIVIDAD 2 ===================== -->
+<div class="activity" id="act2" hidden>
+<nav aria-label="Secciones de la actividad 2"><div class="wrap">
+  <a href="#tasa">1. ¿Qué es una tasa?</a>
+  <a href="#comparar">2. Comparar dos lugares</a>
+  <a href="#graficas">3. Leer las gráficas</a>
+  <a href="#proyeccion">4. Proyectar a 2050</a>
+  <a href="#tuestado">5. Tu estado</a>
+  <a href="#documento">6. Tu documento</a>
+  <a href="#quiz2">7. ¿Lo entendí?</a>
+  <a href="#lista2">8. Antes de entregar</a>
+</div></nav>
+<main>
+<section class="intro"><span class="step">Actividad integradora 2 · ¿Cuántas casas más?</span><h2>Medir el crecimiento con porcentajes</h2><p class="lead">Vas a calcular tasas de crecimiento entre periodos, comparar dos lugares, proyectar el número de viviendas a 2050 y analizar qué significa ese crecimiento para la sociedad.</p></section>
+
+<!-- 1. TASA -->
+<section id="tasa">
+  <span class="step">Paso 1</span>
+  <h2>¿Qué es una tasa de crecimiento?</h2>
+  <p class="lead">Es el porcentaje que aumentó (o disminuyó) una cantidad de un periodo a otro. Sirve para comparar lugares de distinto tamaño.</p>
+  <div class="formula"><span class="nw">Tasa =</span> <span class="nw">(Valor final − Valor inicial)</span> <span class="nw">÷ Valor inicial × 100</span></div>
+  <p>Practica con el municipio ficticio de <b>Valle Verde</b>. Elige un periodo:</p>
+  <div class="sel-row"><label for="tp">Periodo<select id="tp"></select></label></div>
+  <div class="explain steps-box" id="tSteps"></div>
+  <div class="note blue"><b>¿Por qué no basta con la resta?</b> La resta dice cuántas viviendas se agregaron; la tasa dice qué tan rápido creció respecto a lo que había. Un lugar grande puede agregar muchas viviendas y aun así crecer menos en porcentaje que uno pequeño.</div>
+</section>
+
+<!-- 2. COMPARAR -->
+<section id="comparar">
+  <span class="step">Paso 2</span>
+  <h2>Comparar dos lugares</h2>
+  <p class="lead">Datos <b>ficticios</b> de viviendas en dos municipios. Calcula las tasas de cada periodo y observa en cuál crecieron menos.</p>
+  <div class="row"><button type="button" class="btn" id="rCalc">Calcular tasas ▸</button></div>
+  <div class="tablewrap"><table class="data2" id="tData"></table></div>
+  <div class="explain" id="rMsg" aria-live="polite"></div>
+</section>
+
+<!-- 3. GRÁFICAS -->
+<section id="graficas">
+  <span class="step">Paso 3</span>
+  <h2>Cómo se ve el crecimiento en las gráficas</h2>
+  <div class="tabs" id="gTabs" role="group" aria-label="Tipo de gráfica">
+    <button type="button" data-g="viv" class="on" aria-pressed="true">Viviendas por año</button>
+    <button type="button" data-g="tasa" aria-pressed="false">Tasa por periodo</button>
+  </div>
+  <div class="legend"><span><i style="background:#2b5d8a"></i>Valle Verde</span><span><i style="background:#1f8a5b"></i>Costa Azul</span></div>
+  <div class="chartbox"><svg id="cViv" viewBox="0 0 720 280" width="100%" role="img" aria-label="Gráfica de viviendas"></svg></div>
+  <div class="explain" id="gMsg"></div>
+  <div class="note"><b>Para explicar con las gráficas:</b> en la de líneas, un tramo más plano significa menor crecimiento; en la de columnas de tasas, la columna más baja es el periodo de menor crecimiento. Menciona el periodo y la cifra.</div>
+</section>
+
+<!-- 4. PROYECCIÓN -->
+<section id="proyeccion">
+  <span class="step">Paso 4</span>
+  <h2>Proyectar a 2050 si la tendencia se mantiene</h2>
+  <p class="lead">“Si la tendencia se mantiene” significa que la misma tasa se repite en cada periodo de 5 años. De 2020 a 2050 hay <b>6 periodos</b> (2025, 2030, 2035, 2040, 2045 y 2050).</p>
+  <div class="formula"><span class="nw">V<sub>2050</sub> = V<sub>2020</sub> × (1 + tasa)<sup>6</sup></span></div>
+  <div class="sel-row">
+    <label for="pm">Municipio<select id="pm"><option value="0" selected>Valle Verde</option><option value="1">Costa Azul</option></select></label>
+    <label for="pt">Tasa que se mantiene<select id="pt"></select></label>
+  </div>
+  <div class="row">
+    <button type="button" class="btn" id="pNext">Proyectar el siguiente periodo ▸</button>
+    <button type="button" class="btn ghost" id="pAll">Mostrar hasta 2050</button>
+    <button type="button" class="btn ghost" id="pReset">Reiniciar</button>
+  </div>
+  <div class="explain" id="pExplain" aria-live="polite"></div>
+  <div class="tablewrap"><table class="mini"><thead><tr><th scope="col">Año</th><th scope="col">Cálculo</th><th scope="col">Viviendas</th></tr></thead><tbody id="pBody"></tbody></table></div>
+  <div class="vs">
+    <div class="opt bad"><h4>Error común</h4><p id="pWrong"></p></div>
+    <div class="opt good"><h4>Procedimiento correcto</h4><p id="pRight"></p></div>
+  </div>
+</section>
+
+<!-- 5. TU ESTADO -->
+<section id="tuestado">
+  <span class="step">Paso 5</span>
+  <h2>Tu estado y la Ciudad de México</h2>
+  <ol class="steps">
+    <li>Descarga el archivo <b>Viviendas_INEGI</b> de la plataforma y localiza la fila de tu estado y la de la Ciudad de México. Si vives en la Ciudad de México, elige otro estado.</li>
+    <li>Calcula la tasa de 2015 a 2020 de cada uno con la misma fórmula del paso 1.</li>
+    <li>Compara: ¿cuál creció más en porcentaje?, ¿cuál agregó más viviendas? Pueden no coincidir, como en el ejemplo de Valle Verde y Costa Azul.</li>
+    <li>Proyecta tu estado a 2050 con la tasa de 2015 a 2020, igual que en el paso 4.</li>
+    <li>Explica las posibles consecuencias: agua, drenaje, transporte, escuelas, hospitales, áreas verdes, empleo y precio de la vivienda.</li>
+  </ol>
+  <div class="note blue"><b>Revisa la tabla del archivo antes de calcular:</b> identifica en qué columna está cada año y escribe los valores tal como aparecen, sin redondear.</div>
+</section>
+
+<!-- 6. DOCUMENTO -->
+<section id="documento">
+  <span class="step">Paso 6</span>
+  <h2>Cómo presentar el procedimiento en tu documento</h2>
+  <p class="lead">Esta actividad se entrega en un procesador de textos. Para cada cálculo escribe la fórmula, la sustitución y el resultado, como en este modelo con datos ficticios:</p>
+  <div class="model" id="docModel"></div>
+  <p>Si haces las cuentas en una hoja de cálculo, estas fórmulas te ayudan. Después copia las tablas y gráficas a tu documento.</p>
+  <div class="fbar"><b>fx</b><span id="ftext2">Selecciona una celda azul.</span></div>
+  <div class="tablewrap"><table class="sheet" id="sheet2"></table></div>
+  <div class="explain" id="fexp2" aria-live="polite">Aquí aparecerá la explicación de la fórmula.</div>
+</section>
+
+<section id="quiz2"><span class="step">Paso 7</span><h2>¿Lo entendí? Tres situaciones rápidas</h2><div id="qz2"></div></section>
+
+<section id="lista2"><span class="step">Paso 8</span><h2>Antes de entregar</h2>
+  <div class="check">
+    <label><input type="checkbox"> Calculé las tasas de los cuatro periodos de cada estado, con fórmula, sustitución y resultado.</label>
+    <label><input type="checkbox"> Comparé el periodo 2005–2010 de ambos estados y lo expliqué con las gráficas.</label>
+    <label><input type="checkbox"> Identifiqué el periodo de menor crecimiento de cada estado.</label>
+    <label><input type="checkbox"> Proyecté a 2050 con la tasa de 2015–2020 usando 6 periodos de 5 años.</label>
+    <label><input type="checkbox"> Calculé la tasa 2015–2020 de mi estado y de la Ciudad de México (u otro estado) y las comparé.</label>
+    <label><input type="checkbox"> Proyecté mi estado a 2050.</label>
+    <label><input type="checkbox"> Expliqué las consecuencias del crecimiento de viviendas en mi estado.</label>
+    <label><input type="checkbox"> Cité al INEGI y las herramientas de IA según el manual vigente de PL-SEP.</label>
+  </div>
+  <div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0"><div></div></div>
+  <p class="small ptext">0 de 8</p>
+</section>
+</main>
+</div>
+
+<footer>Material de apoyo · Asesoría virtual · Módulo 13 · Actividades integradoras 1 y 2</footer>
+<script src="assets/app.js" defer></script>
+</body>
+</html>
